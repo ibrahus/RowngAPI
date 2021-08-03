@@ -1,4 +1,5 @@
 import os
+import re
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 from flask_migrate import Migrate
@@ -7,6 +8,8 @@ from sqlalchemy import Column, String, Integer, create_engine
 import json
 
 database_path = os.environ['DATABASE_URL']
+if database_path.startswith("postgres://"):
+    database_path = database_path.replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy()
 
