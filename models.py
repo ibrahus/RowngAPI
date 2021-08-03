@@ -12,6 +12,7 @@ if database_path.startswith("postgres://"):
     database_path = database_path.replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy()
+migrate = Migrate(app, db)
 
 '''
 setup_db(app)
