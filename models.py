@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from datetime import datetime
 from sqlalchemy import Column, String, Integer, create_engine
 import json
-from app.py import app
+from /app/app.py import app
 
 database_path = os.environ['DATABASE_URL']
 if database_path.startswith("postgres://"):
