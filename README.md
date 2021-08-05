@@ -82,7 +82,6 @@ The API will return those error types when requests fail:
 }
 - Require (POST:create-user) permission
 
-
 #### POST /create-service/
 - Send a post request in order to create new service
 - request body:
@@ -93,7 +92,6 @@ The API will return those error types when requests fail:
     "service_duration": 1
 }
 - Require (POST:create-service) permission
-
 
 #### POST /create-booking/
 - Send a post request in order to create new booking
@@ -106,7 +104,15 @@ The API will return those error types when requests fail:
 }
 - Require (POST:create-booking) permission
 
+#### POST /update-booking/${booking_id}
+- Send a post request in order to update a booking
+- request body:
+{
+    "services": [1],
+    "booking_date": "2021-08-18 09:00:00"
+}
+- Require (PATCH:update-booking) permission
 
-		POST: add new booking
-		PATCH: update a booking <int: booking id>
-    DELETE: delete a booking <int: booking id>
+#### DELETE /delete-booking/${booking_id}
+- Send a post request in order to delete a booking
+- Require (DELETE:delete-booking) permission
