@@ -1,0 +1,1271 @@
+{
+	"info": {
+		"_postman_id": "912c945d-4403-4b13-abae-eb09cf59ba1a",
+		"name": "Rowng-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "create-vendor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vendor 2 name\",\r\n    \"city\": \"Riyadh\",\r\n    \"address\": \"Vendor 2 address\",\r\n    \"start_duty_time\": 9,\r\n    \"end_duty_time\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-vendor",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-vendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vendor_id\": 1,\r\n    \"service_name\": \"Service 2 name\",\r\n    \"service_price\": 2,\r\n    \"service_duration\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-service",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vendor_id\": 1,\r\n    \"user_id\": 1,\r\n    \"services\": [1,2],\r\n    \"booking_date\": \"2021-08-04 09:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-booking",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"User 2 name\",\r\n    \"city\": \"User 2 city\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vendors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vendors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user-bookings/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user-bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendor-bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains vendor bookings array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.vendor_bookings).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vendor-bookings/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vendor-bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains booking Object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.booking).to.be.an('Object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"services\": [1],\r\n    \"booking_date\": \"2021-08-18 09:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/update-booking/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"update-booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vendor_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/delete-booking/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"delete-booking",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"User 2 name\",\r\n    \"city\": \"Riyadh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vendor_id\": 1,\r\n    \"service_name\": \"Service 2 name\",\r\n    \"service_price\": 2,\r\n    \"service_duration\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-service",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-vendor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vendor 2 name\",\r\n    \"city\": \"Riyadh\",\r\n    \"address\": \"Vendor 2 address\",\r\n    \"start_duty_time\": 9,\r\n    \"end_duty_time\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-vendor",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-vendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vendor_id\": 1,\r\n    \"user_id\": 1,\r\n    \"services\": [1,2],\r\n    \"booking_date\": \"2021-08-04 09:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-booking",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains vendors array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.vendors).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vendors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vendors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains user bookings array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user_bookings).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user-bookings/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user-bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendor-bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vendor-bookings/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vendor-bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains booking Object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.booking).to.be.an('Object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"services\": [1],\r\n    \"booking_date\": \"2021-08-18 09:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/update-booking/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"update-booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/delete-booking/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"delete-booking",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "create-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"User 2 name\",\r\n    \"city\": \"User 2 city\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vendor_id\": 1,\r\n    \"service_name\": \"Service 2 name\",\r\n    \"service_price\": 2,\r\n    \"service_duration\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-service",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-vendor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vendor 2 name\",\r\n    \"city\": \"Riyadh\",\r\n    \"address\": \"Vendor 2 address\",\r\n    \"start_duty_time\": 9,\r\n    \"end_duty_time\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-vendor",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-vendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vendor_id\": 1,\r\n    \"user_id\": 1,\r\n    \"services\": [1,2],\r\n    \"booking_date\": \"2021-08-04 09:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/create-booking",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"create-booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vendors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vendors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user-bookings/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user-bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vendor-bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/vendor-bookings/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"vendor-bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"services\": [1],\r\n    \"booking_date\": \"2021-08-18 09:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/update-booking/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"update-booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since no credentials are present\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/delete-booking/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"delete-booking",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "vendor_token",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNNZGlSY2JhSm1udldXb0RidTgyYyJ9.eyJpc3MiOiJodHRwczovL2licmEtZnNuZC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjEwYmE4MDNkMDU2NzUwMDcwZGI5Y2MwIiwiYXVkIjoiUm93bmctQVBJIiwiaWF0IjoxNjI4MzM0MDQzLCJleHAiOjE2Mjg0MjA0NDMsImF6cCI6ImEzZmxuVG5WUzM2UWF6SWZ0RWY3a0pOb1lJeTg3MEJuIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJHRVQ6dmVuZG9yLWJvb2tpbmciLCJQQVRDSDp1cGRhdGUtYm9va2luZyIsIlBPU1Q6Y3JlYXRlLXNlcnZpY2UiLCJQT1NUOmNyZWF0ZS12ZW5kb3IiXX0.OWA9bn2P7ZqWjieYlOhbARXfDMBEvUaZkp_z7HKGw3Rja3FXHuf147pi_EUUWU6zgGQ-Xy0-lZdPqqacyf1FaRxsvo3ExrbYCNMA8dBeyfSexul6Pe8yk13iUKueUnW6PmGMB46tHaASJbH2oLUg_St8Cn4a2MNVHdcUB-IPTiyRJsVXjpRpW2NCTNtWIM7ClRewCTJxxfywc8dXe6fWXembEAj-q-_CWy40UCGAmNajapUVnOqlTeY_viHv8tW_fGJ80kEyo_K5wDNhbCBMCEUL5sUMDSxDyA1piVXC0T97X5fBJqiT0uWiLOX_4RMBlYUIftaNKAfdCjuQLo3G_Q"
+		},
+		{
+			"key": "user_token",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImNNZGlSY2JhSm1udldXb0RidTgyYyJ9.eyJpc3MiOiJodHRwczovL2licmEtZnNuZC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjEwYmE4ZTNlMTZiOTEwMDZhZDU3OGYwIiwiYXVkIjoiUm93bmctQVBJIiwiaWF0IjoxNjI4MzM0ODQ5LCJleHAiOjE2Mjg0MjEyNDksImF6cCI6ImEzZmxuVG5WUzM2UWF6SWZ0RWY3a0pOb1lJeTg3MEJuIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJERUxFVEU6ZGVsZXRlLWJvb2tpbmciLCJHRVQ6dXNlci1ib29raW5nIiwiR0VUOnZlbmRvcnMiLCJQQVRDSDp1cGRhdGUtYm9va2luZyIsIlBPU1Q6Y3JlYXRlLWJvb2tpbmciLCJQT1NUOmNyZWF0ZS11c2VyIl19.TF9coWi5j8xgH3WQ2kGfMOB6psEAofKVxKq4LpJEbFJMQ7oFSSomOTE-YXU44bRaQ8nXsWamd2UxZpjBDF8Q4gZEVnkWadTGl2Akv9p_mixjxvH5Dze3gfMzQFKLHYynR1Ylpi0QmByEzYHKuR_djKymhErEjsss1Ll1Q3p5k761nlaG3k1ShofyzYH8k0n_mm3zkt2x2EVl2qfYsD3tSILAb_ATrmAJ7qughA7OdHEHRzJl6sEDW55cmvqEuulMkonqZ4vddhyACIyNlRZWVAGR-48u-a2_3ewMrkOBwRUa8-tLdC-GUYrg1vTwCtJ-jH7QVnPYYzmx9AGovkpwyQ"
+		},
+		{
+			"key": "host",
+			"value": "https://fsnd-rowng-api.herokuapp.com/"
+		}
+	]
+}
