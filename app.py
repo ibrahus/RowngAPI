@@ -18,7 +18,7 @@ def create_app(test_config=None):
 !! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
 !! Running this funciton will add one
 '''
-    # create_and_drop_all()
+    create_and_drop_all()
 
     CORS(app)
 
