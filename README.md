@@ -39,7 +39,7 @@ The `--reload` flag will detect file changes and restart the server automaticall
 ## API Reference
 
 ### Getting Started
-- Base URL: At present this app can only be run locally and is not hosted as a base URL.
+- Base URL: https://fsnd-rowng-api.herokuapp.com/
 - If run locally, the app is hosted at the default, `http://127.0.0.1:5000/`
 - Authentication: The app use AUTH0 authentication. Two roles are created, each role has a set of permissions described as folow:
     - Vendor:
